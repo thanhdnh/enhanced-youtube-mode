@@ -1,9 +1,9 @@
 {
     "name": "Enhanced Youtube Mode",
-	"short_name": "Youtube Popout",
+	"short_name": "Youtube Edge to Edge",
     "manifest_version": 2,
-	"version":"2.0.0.2",
-    "description": "This extension adds the fitting mode to YouTube player to make it more amazing.",
+	"version":"2.0.1.0",
+    "description": "This extension adds the edge to edge mode to YouTube player to make it more amazing.",
     "browser_action": {
 		"default_icon": "48.png",
 		"default_title": "Toggle YouTube Mode on Player"
@@ -16,7 +16,7 @@
 	{
 		"matches": [ "*://*.youtube.com/watch*" ],
 		"js":["content.js"],
-		 "css": ["app_player.css"],
+		"css": ["app_player.css"],
 		"run_at": "document_end"
 	}
 	],
@@ -24,7 +24,8 @@
 		"tabs",
         "activeTab",
         "storage",
-        "<all_urls>"
+        "<all_urls>",
+		"webNavigation"
 	],
 	"icons": {"48": "48.png",
 			"16": "16.png",

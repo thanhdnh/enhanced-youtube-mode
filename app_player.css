@@ -6,3 +6,6 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
     background: dimgray; 
 }
+html, body{
+    overflow-x:hidden;
+}

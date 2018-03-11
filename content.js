@@ -1,15 +1,18 @@
-﻿var controls = document.getElementsByClassName("ytp-right-controls");
-var control = controls[0];
+﻿if(document.getElementById('ytp-enhanced-yt-mode')==null){
+	var controls = document.getElementsByClassName("ytp-right-controls");
+	var control = controls[0];
 
-var fm = document.createElement("button");
-fm.setAttribute("class","ytp-button");
-fm.setAttribute("title","Fitting mode");
-fm.innerHTML = '<svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%"><path d="m 31,15 0,14 -20,0 0,-14 z m -18,2 16,0 0,10 -16,0 0,-10 z" fill="#fff" fill-rule="evenodd" id="ytp-id-31"></path><path d="m 26,10 0,14 -20,0 0,-14 z m -18,2 16,0 0,10 -16,0 0,-10 z" fill="#fff" fill-rule="evenodd" id="ytp-id-31"></path></svg>';
-control.appendChild(fm);
-fm.addEventListener("click", ctl_fit);
+	var fm = document.createElement("button");
+	fm.setAttribute("class","ytp-button");
+	fm.setAttribute("title","Fitting mode");
+	fm.setAttribute("id","ytp-enhanced-yt-mode");
+	fm.innerHTML = '<svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%"><path d="m 31,15 0,14 -20,0 0,-14 z m -18,2 16,0 0,10 -16,0 0,-10 z" fill="#fff" fill-rule="evenodd" id="ytp-id-31"></path><path d="m 26,10 0,14 -20,0 0,-14 z m -18,2 16,0 0,10 -16,0 0,-10 z" fill="#fff" fill-rule="evenodd" id="ytp-id-31"></path></svg>';
+	fm.addEventListener("click", ctl_fit);
+	control.appendChild(fm);
+}
 
-function ctl_fit(){
-	
+function ctl_fit(event){
+	event.preventDefault();
 	var m = document.querySelectorAll('#content #top #player');
 	var player = m[0];
 	
@@ -49,6 +52,7 @@ function ctl_fit(){
 		
 		ct.style.width = '640px';
 		ct.style.height = '360px';
+		document.body.style.overflowX = 'auto';
 		
 		plctrl.style.width = '616px';
 		localStorage.setItem("ispop", 0);
@@ -56,8 +60,8 @@ function ctl_fit(){
 	}
 }
 
-document.onreadystatechange = function () {
-  if (document.readyState === "complete") {
+window.onload = function () {
+  //if (document.readyState === "complete") {
 	setTimeout(function(){
 	var m = document.querySelectorAll('#content #top #player');
 	var player = m[0];
@@ -92,8 +96,8 @@ document.onreadystatechange = function () {
 		
 		plctrl.style.width = (window.innerWidth-30)+'px';
 		mode.disabled = true;
-	}}, 1000);
-  }
+	}}, 100);
+  //}
 }
 
 window.onresize = function(){
@@ -110,6 +114,4 @@ document.onmousemove = function(){
 	else
 		fm.disabled = false;
 }
-
-var first = true;
 
