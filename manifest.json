@@ -29,6 +29,5 @@
 	],
 	"icons": {"48": "48.png",
 			"16": "16.png",
-			"128": "128.png"},
-	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+			"128": "128.png"}
 }
